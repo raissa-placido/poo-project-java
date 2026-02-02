@@ -6,7 +6,7 @@ public class Cadastro {
     // Listas para armazenar os objetos em memória
     private List<Usuario> listaUsuarios;
     private List<Tecnico> listaTecnicos;
-    private List<Chamado> listaChamados; 
+    //private List<Chamado> listaChamados; 
 
     // Construtor: Inicializa as listas vazias
     public Cadastro() {
@@ -29,10 +29,9 @@ public class Cadastro {
         System.out.println("Técnico cadastrado com sucesso: " + tecnico.getNome());
     }
 
-    public void cadastrarChamado(Chamado chamado) {
-        listaChamados.add(chamado);
-        System.out.println("Chamado aberto com sucesso!");
-    }
+    //public void cadastrarChamado(Chamado chamado) {
+    //    listaChamados.add(chamado);
+    //   System.out.println("Chamado aberto com sucesso!");}
     
 
     // --- MÉTODOS DE CONSULTA---
