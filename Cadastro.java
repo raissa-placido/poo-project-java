@@ -6,13 +6,11 @@ public class Cadastro {
     // Listas para armazenar os objetos em memória
     private List<Usuario> listaUsuarios;
     private List<Tecnico> listaTecnicos;
-    //private List<Chamado> listaChamados; 
 
     // Construtor: Inicializa as listas vazias
     public Cadastro() {
         this.listaUsuarios = new ArrayList<>();
         this.listaTecnicos = new ArrayList<>();
-        this.listaChamados = new ArrayList<>();
     }
 
     // --- MÉTODOS DE CADASTRO ---
@@ -28,10 +26,6 @@ public class Cadastro {
         listaTecnicos.add(tecnico);
         System.out.println("Técnico cadastrado com sucesso: " + tecnico.getNome());
     }
-
-    //public void cadastrarChamado(Chamado chamado) {
-    //    listaChamados.add(chamado);
-    //   System.out.println("Chamado aberto com sucesso!");}
     
 
     // --- MÉTODOS DE CONSULTA---
@@ -71,29 +65,29 @@ public class Cadastro {
     }
 
     // Filtra e mostra apenas os chamados de um usuário específico
-    public void listarChamadosPorUsuario(Usuario u) {
-        System.out.println("\n--- MEUS CHAMADOS (" + u.getNome() + ") ---");
-        boolean encontrou = false;
-        for (Chamado c : listaChamados) {
-            if (c.getSolicitante().getId() == u.getId()) {
-                System.out.println(c.toString());
-                encontrou = true;
-            }
-        }
-        if (!encontrou) System.out.println("Você não tem chamados abertos.");
-    }
+    // public void listarChamadosPorUsuario(Usuario u) {
+    //     System.out.println("\n--- MEUS CHAMADOS (" + u.getNome() + ") ---");
+    //     boolean encontrou = false;
+    //     for (Chamado c : listaChamados) {
+    //         if (c.getSolicitante().getId() == u.getId()) {
+    //             System.out.println(c.toString());
+    //             encontrou = true;
+    //         }
+    //     }
+    //     if (!encontrou) System.out.println("Você não tem chamados abertos.");
+    // }
 
     // Filtra e mostra apenas os chamados atendidos por este técnico
-    public void gerarRelatorioTecnico(Tecnico t) {
-        System.out.println("\n--- RELATÓRIO DE ATENDIMENTOS (" + t.getNome() + ") ---");
-        boolean encontrou = false;
-        for (Chamado c : listaChamados) {
-            // Verifica se tem técnico E se o ID bate
-            if (c.getTecnico() != null && c.getTecnico().getId() == t.getId()) {
-                System.out.println(c.toString());
-                encontrou = true;
-            }
-        }
-        if (!encontrou) System.out.println("Nenhum atendimento realizado ainda.");
-    }
+    // public void gerarRelatorioTecnico(Tecnico t) {
+    //     System.out.println("\n--- RELATÓRIO DE ATENDIMENTOS (" + t.getNome() + ") ---");
+    //     boolean encontrou = false;
+    //     for (Chamado c : listaChamados) {
+    //         // Verifica se tem técnico E se o ID bate
+    //         if (c.getTecnico() != null && c.getTecnico().getId() == t.getId()) {
+    //             System.out.println(c.toString());
+    //             encontrou = true;
+    //         }
+    //     }
+    //     if (!encontrou) System.out.println("Nenhum atendimento realizado ainda.");
+    // }
 }
