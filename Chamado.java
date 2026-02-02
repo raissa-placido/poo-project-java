@@ -2,8 +2,8 @@ public class Chamado {
     private int id;
     private String titulo;
     private String descricao;
-    private String prioridade; // Ex: Baixa, Media, Alta
-    private String status;     // Ex: Aberto, Em Andamento, Encerrado
+    private Prioridade prioridade; // Ex: Baixa, Media, Alta
+    private Status status;     // Ex: Aberto, Em Andamento, Encerrado
     
     // RELACIONAMENTOS (O Pulo do Gato!)
     private Usuario solicitante; // Quem abriu?
@@ -11,14 +11,14 @@ public class Chamado {
 
     // Construtor: Quando criamos o chamado, SÓ sabemos quem pediu.
     // O técnico e o status são definidos automaticamente no início.
-    public Chamado(int id, String titulo, String descricao, String prioridade, Usuario solicitante) {
+    public Chamado(int id, String titulo, String descricao, Prioridade prioridade, Usuario solicitante) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.prioridade = prioridade;
         this.solicitante = solicitante;
         
-        this.status = "Aberto"; // Todo chamado nasce Aberto
+        this.status = Status.ABERTO; // Todo chamado nasce Aberto
         this.tecnico = null;    // Ainda não tem técnico atribuído
     }
 
@@ -27,17 +27,17 @@ public class Chamado {
     // Atribuir um técnico muda o status para "Em Andamento"
     public void atribuirTecnico(Tecnico tecnico) {
         this.tecnico = tecnico;
-        this.status = "Em Andamento";
+        this.status = Status.ANDAMENTO;
     }
 
     // Fechar o chamado
     public void fecharChamado() {
-        this.status = "Encerrado";
+        this.status = Status.ENCERRADO;
     }
 
     // --- GETTERS (Para consultar dados) ---
-    public String getTitulo() { return titulo; }
-    public String getStatus() { return status; }
+    public String getTitulo() { return titulo; } 
+    public Status getStatus() {return status;}
     
 
     // --- TO STRING (Para imprimir bonito) ---
