@@ -10,6 +10,7 @@ public class Main {
         sistema.cadastrarUsuario(new Usuario(1, "Ana RH", "RH"));
         sistema.cadastrarUsuario(new Usuario(2, "Pedro Vendas", "Vendas"));
         sistema.cadastrarTecnico(new Tecnico(10, "Roberto Tech", "Redes"));
+        
 
         int opcao = -1;
         while (opcao != 0) {
@@ -42,7 +43,7 @@ public class Main {
         int id = scanner.nextInt();
         scanner.nextLine();
 
-        Usuario logado = sistema.buscarUsuario(id);
+        Usuario logado = sistema.buscarUsuario(id); //chama a função da classe Cadastro e definir esse usuario como objeto
         if (logado == null) {
             System.out.println("Usuário não encontrado!");
             return;
@@ -58,12 +59,12 @@ public class Main {
             op = scanner.nextInt();
             scanner.nextLine();
 
-            if (op == 1) {
-                abrirChamado(logado);
-            } else if (op == 2) {
+            //if (op == 1) {
+            //    abrirChamado(logado);
+            //} else if (op == 2) {
                 // Chama o novo método de filtro que criamos
-                sistema.listarChamadosPorUsuario(logado);
-            }
+            //    sistema.listarChamadosPorUsuario(logado);
+            //}
         }
     }
 
@@ -72,7 +73,7 @@ public class Main {
         int id = scanner.nextInt();
         scanner.nextLine();
 
-        Tecnico logado = sistema.buscarTecnico(id);
+        Tecnico logado = sistema.buscarTecnico(id); //chama a função da classe Cadastro e defini esse tecnico como objeto
         if (logado == null) {
             System.out.println("Técnico não encontrado!");
             return;
@@ -88,11 +89,11 @@ public class Main {
             op = scanner.nextInt();
             scanner.nextLine();
 
-            if (op == 1) {
-                sistema.gerarRelatorioTecnico(logado); // Mostra todos
-            } else if (op == 2) {
-                sistema.gerarRelatorioTecnico(logado); // Mostra só os dele
-            }
+            //if (op == 1) {
+            //    sistema.gerarRelatorioTecnico(logado); // Mostra todos
+            //} else if (op == 2) {
+            //    sistema.gerarRelatorioTecnico(logado); // Mostra só os dele
+            //}
         }
     }
 
