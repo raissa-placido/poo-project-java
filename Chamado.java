@@ -6,27 +6,27 @@ public class Chamado {
     private Status status;     // Ex: Aberto, Em Andamento, Encerrado
     
     // RELACIONAMENTOS (O Pulo do Gato!)
-    private Usuario solicitante; // Quem abriu?
-    private Tecnico tecnico;     // Quem vai resolver? (Pode ser null no início)
+    private Usuario autor; // Quem abriu?
+    private Tecnico responsavel;     // Quem vai resolver? (Pode ser null no início)
 
     // Construtor: Quando criamos o chamado, SÓ sabemos quem pediu.
     // O técnico e o status são definidos automaticamente no início.
-    public Chamado(int id, String titulo, String descricao, Prioridade prioridade, Usuario solicitante) {
+    public Chamado(int id, String titulo, String descricao, Prioridade prioridade, Usuario autor) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.prioridade = prioridade;
-        this.solicitante = solicitante;
+        this.autor = autor;
         
         this.status = Status.ABERTO; // Todo chamado nasce Aberto
-        this.tecnico = null;    // Ainda não tem técnico atribuído
+        this.responsavel = null;    // Ainda não tem técnico atribuído
     }
 
     // --- MÉTODOS DE AÇÃO ---
 
     // Atribuir um técnico muda o status para "Em Andamento"
     public void atribuirTecnico(Tecnico tecnico) {
-        this.tecnico = tecnico;
+        this.responsavel = tecnico;
         this.status = Status.ANDAMENTO;
     }
 
@@ -44,20 +44,20 @@ public class Chamado {
     @Override
     public String toString() {
         // Truque para não dar erro se o técnico for null
-        String nomeTecnico = (tecnico != null) ? tecnico.getNome() : "Pendente";
+        String nomeTecnico = (responsavel != null) ? responsavel.getNome() : "Pendente";
         
         return "Chamado #" + id + " [" + status + "] - " + titulo +
-               "\n   Solicitante: " + solicitante.getNome() +
+               "\n   Solicitante: " + autor.getNome() +
                "\n   Técnico: " + nomeTecnico +
                "\n   Prioridade: " + prioridade;
     }
 
 
     public Usuario getSolicitante() {
-        return solicitante;
+        return autor;
     }
 
     public Tecnico getTecnico() {
-        return tecnico;
+        return responsavel;
     }
 }
