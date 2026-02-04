@@ -4,6 +4,7 @@ public class Main {
     
     static Scanner scanner = new Scanner(System.in);
     static Cadastro sistema = new Cadastro();
+    static ChamadoService chamadoService = new ChamadoService();
 
     public static void main(String[] args) {
         // Dados de teste iniciais
@@ -104,14 +105,14 @@ public class Main {
         String titulo = scanner.nextLine();
         System.out.print("Descrição: ");
         String desc = scanner.nextLine();
-        System.out.print("Prioridade: ");
-        String prio = scanner.nextLine();
+        System.out.print("Prioridade (BAIXA/MEDIA/ALTA): ");
+        String prioStr = scanner.nextLine();
+        Prioridade prio = Prioridade.valueOf(prioStr.toUpperCase());
         
         // Simulando ID automático simples com base no tempo (ou aleatório)
         int idChamado = (int) (System.currentTimeMillis() % 10000); 
         
-        Chamado novo = new Chamado(idChamado, titulo, desc, prio, u);
-        sistema.cadastrarChamado(novo);
+        chamadoService.abrirChamado(idChamado, titulo, desc, prio, u);
         System.out.println("Chamado #" + idChamado + " criado com sucesso!");
     }
 
