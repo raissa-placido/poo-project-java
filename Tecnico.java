@@ -1,8 +1,8 @@
 public class Tecnico extends Pessoa {
     private String especialidade;
 
-    public Tecnico(int id, String nome, String especialidade) {
-        super(id, nome); // Passa para o pai
+    public Tecnico(String matricula, String nome, String especialidade) {
+        super(matricula, nome); // Passa a matrícula para o pai
         this.especialidade = especialidade;
     }
 

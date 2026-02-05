@@ -1,11 +1,11 @@
 public abstract class Pessoa {
     // Usamos 'protected' para que as classes filhas (Usuario/Tecnico)
     // consigam acessar esses dados diretamente
-    protected int id;
+    protected String matricula;
     protected String nome;
 
-    public Pessoa(int id, String nome) {
-        this.id = id;
+    public Pessoa(String matricula, String nome) {
+        this.matricula = matricula;
         this.nome = nome;
     }
 
@@ -13,7 +13,7 @@ public abstract class Pessoa {
         return nome;
     }
 
-    public int getId() {
-        return id;
+    public String getMatricula() {
+        return matricula;
     }
 }

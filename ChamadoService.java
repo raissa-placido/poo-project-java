@@ -22,7 +22,7 @@ public class ChamadoService {
         System.out.println("\n--- MEUS CHAMADOS (" + u.getNome() + ") ---");
         boolean encontrou = false;
         for (Chamado c : listaChamados) {
-            if (c.getSolicitante().getId() == u.getId()) {
+            if (c.getSolicitante().getMatricula().equals(u.getMatricula())) {
                 System.out.println(c.toString());
                 encontrou = true;
             }
@@ -35,8 +35,8 @@ public class ChamadoService {
         System.out.println("\n--- RELATÓRIO DE ATENDIMENTOS (" + t.getNome() + ") ---");
         boolean encontrou = false;
         for (Chamado c : listaChamados) {
-            // Verifica se tem técnico E se o ID bate
-            if (c.getTecnico() != null && c.getTecnico().getId() == t.getId()) {
+            // Verifica se tem técnico E se a matrícula bate
+            if (c.getTecnico() != null && c.getTecnico().getMatricula().equals(t.getMatricula())) {
                 System.out.println(c.toString());
                 encontrou = true;
             }

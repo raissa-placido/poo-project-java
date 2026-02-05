@@ -8,9 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
         // Dados de teste iniciais
-        sistema.cadastrarUsuario(new Usuario(1, "Ana RH", "RH"));
-        sistema.cadastrarUsuario(new Usuario(2, "Pedro Vendas", "Vendas"));
-        sistema.cadastrarTecnico(new Tecnico(10, "Roberto Tech", "Redes"));
+        sistema.cadastrarUsuario(new Usuario("001", "Ana RH", "RH"));
+        sistema.cadastrarUsuario(new Usuario("002", "Pedro Vendas", "Vendas"));
+        sistema.cadastrarTecnico(new Tecnico("T001", "Roberto Tech", "Redes"));
         
 
         int opcao = -1;
@@ -40,11 +40,10 @@ public class Main {
     // --- MÉTODOS DE LOGIN ---
 
     public static void loginUsuario() {
-        System.out.print("ID do Usuário: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Matrícula do Usuário: ");
+        String matricula = scanner.nextLine();
 
-        Usuario logado = sistema.buscarUsuario(id); //chama a função da classe Cadastro e definir esse usuario como objeto
+        Usuario logado = sistema.buscarUsuario(matricula); //chama a função da classe Cadastro e definir esse usuario como objeto
         if (logado == null) {
             System.out.println("Usuário não encontrado!");
             return;
@@ -70,11 +69,10 @@ public class Main {
     }
 
     public static void loginTecnico() {
-        System.out.print("ID do Técnico: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Matrícula do Técnico: ");
+        String matricula = scanner.nextLine();
 
-        Tecnico logado = sistema.buscarTecnico(id); //chama a função da classe Cadastro e defini esse tecnico como objeto
+        Tecnico logado = sistema.buscarTecnico(matricula); //chama a função da classe Cadastro e defini esse tecnico como objeto
         if (logado == null) {
             System.out.println("Técnico não encontrado!");
             return;
@@ -117,16 +115,30 @@ public class Main {
     }
 
     public static void cadastrarNovoUsuario() {
-        System.out.print("Novo ID: "); int id = scanner.nextInt(); scanner.nextLine();
+        System.out.print("Nova Matrícula: "); String matricula = scanner.nextLine();
+        
+        // Valida se a matrícula já existe
+        if (sistema.usuarioJaExiste(matricula)) {
+            System.out.println("Erro: Esta matrícula já está cadastrada!");
+            return;
+        }
+        
         System.out.print("Nome: "); String nome = scanner.nextLine();
         System.out.print("Depto: "); String dept = scanner.nextLine();
-        sistema.cadastrarUsuario(new Usuario(id, nome, dept));
+        sistema.cadastrarUsuario(new Usuario(matricula, nome, dept));
     }
 
     public static void cadastrarNovoTecnico() {
-        System.out.print("Novo ID: "); int id = scanner.nextInt(); scanner.nextLine();
+        System.out.print("Nova Matrícula: "); String matricula = scanner.nextLine();
+        
+        // Valida se a matrícula já existe
+        if (sistema.tecnicoJaExiste(matricula)) {
+            System.out.println("Erro: Esta matrícula já está cadastrada!");
+            return;
+        }
+        
         System.out.print("Nome: "); String nome = scanner.nextLine();
         System.out.print("Especialidade: "); String esp = scanner.nextLine();
-        sistema.cadastrarTecnico(new Tecnico(id, nome, esp));
+        sistema.cadastrarTecnico(new Tecnico(matricula, nome, esp));
     }
 }

@@ -1,8 +1,8 @@
 public class Usuario extends Pessoa { 
     private String departamento;
 
-    public Usuario(int id, String nome, String departamento) {
-        super(id, nome); // Envia o id e nome para a classe pai (Pessoa) cuidar
+    public Usuario(String matricula, String nome, String departamento) {
+        super(matricula, nome); // Envia a matrícula e nome para a classe pai (Pessoa) cuidar
         this.departamento = departamento;
     }
 

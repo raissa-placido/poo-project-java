@@ -44,23 +44,33 @@ public class Cadastro {
         }
     }
 
-    // Método para buscar Usuário pelo ID
-    public Usuario buscarUsuario(int id) {
+    // Método para buscar Usuário pela Matrícula
+    public Usuario buscarUsuario(String matricula) {
         for (Usuario u : listaUsuarios) {
-            if (u.getId() == id) {
+            if (u.getMatricula().equals(matricula)) {
                 return u; // Encontrou! Devolve o objeto
             }
         }
         return null; // Não achou ninguém
     }
 
-    // Método para buscar Técnico pelo ID
-    public Tecnico buscarTecnico(int id) {
+    // Método para buscar Técnico pela Matrícula
+    public Tecnico buscarTecnico(String matricula) {
         for (Tecnico t : listaTecnicos) {
-            if (t.getId() == id) {
+            if (t.getMatricula().equals(matricula)) {
                 return t;
             }
         }
         return null;
+    }
+
+    // Verifica se a matrícula de usuário já existe
+    public boolean usuarioJaExiste(String matricula) {
+        return buscarUsuario(matricula) != null;
+    }
+
+    // Verifica se a matrícula de técnico já existe
+    public boolean tecnicoJaExiste(String matricula) {
+        return buscarTecnico(matricula) != null;
     }
 }
