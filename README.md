@@ -49,5 +49,5 @@ java Main
 
 Exemplo de fluxo de uso
 1. Registrar um `Usuario` e um `Tecnico` via `Cadastro`.
-2. Criar um `Chamado` com `Titulo` e `Descrição`, gerando assim um `ID do chamado`.
+2. Criar um `Chamado` com titulo e descrição, gerando assim um ID do chamado.
 3. O `Tecnico` atribui a ele o `Chamado` e atualiza o `Status` conforme o atendimento avança.
