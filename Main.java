@@ -153,21 +153,6 @@ public class Main {
         sistema.cadastrarTecnico(new Tecnico(matricula, nome, esp));
     }
 
-        public static void definirPrioridadeChamado() {
-            System.out.print("ID do Chamado: ");
-            int idChamado = scanner.nextInt();
-            scanner.nextLine();
-        
-            System.out.print("Nova Prioridade (BAIXA/MEDIA/ALTA): ");
-            String prioStr = scanner.nextLine();
-        
-            try {
-                Prioridade prio = Prioridade.valueOf(prioStr.toUpperCase());
-                chamadoService.definirPrioridade(idChamado, prio);
-            } catch (IllegalArgumentException e) {
-                System.out.println("Prioridade inválida! Use: BAIXA, MEDIA ou ALTA");
-            }
-        }
 
         public static void atribuirChamadoAMim(Tecnico tecnico) {
             chamadoService.listarChamadosPendentes();
