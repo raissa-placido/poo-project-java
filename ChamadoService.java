@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChamadoService {
+public class ChamadoService implements IChamadoService {
 
     private List<Chamado> listaChamados;
 
@@ -9,7 +9,6 @@ public class ChamadoService {
     public ChamadoService() {
         this.listaChamados = new ArrayList<>();
     }
-
 
     public Chamado abrirChamado(int id, String titulo, String desc, Prioridade prioridade, Usuario u) {
         Chamado c = new Chamado(id, titulo, desc, prioridade, u);

@@ -4,9 +4,8 @@ public class Chamado {
     private String descricao;
     private Prioridade prioridade; // Ex: Baixa, Media, Alta
     private Status status;     // Ex: Aberto, Em Andamento, Concluído
-    private Status status;     // Ex: Aberto, Em Andamento, Concluído
     
-    // RELACIONAMENTOS (O Pulo do Gato!)
+    // RELACIONAMENTOS 
     private Usuario autor; // Quem abriu?
     private Tecnico responsavel;     // Quem vai resolver? (Pode ser null no início)
 
@@ -41,7 +40,7 @@ public class Chamado {
     public Status getStatus() {return status;}
     
 
-    // --- TO STRING (Para imprimir bonito) ---
+    // --- TO STRING  ---
     @Override
     public String toString() {
         // Truque para não dar erro se o técnico for null

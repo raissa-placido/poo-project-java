@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cadastro {
+public class Cadastro implements ICadastro {
 
     // Listas para armazenar os objetos em memória
     private List<Usuario> listaUsuarios;

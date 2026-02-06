@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class Main {
+    // Objetos globais para facilitar o acesso em métodos 
     
     static Scanner scanner = new Scanner(System.in);
-    static Cadastro sistema = new Cadastro();
-    static ChamadoService chamadoService = new ChamadoService();
+    static ICadastro sistema = new Cadastro();
+    static IChamadoService chamadoService = new ChamadoService();
 
     public static void main(String[] args) {
         // Dados de teste iniciais
@@ -62,7 +63,7 @@ public class Main {
             if (op == 1) {
                 abrirChamado(logado);
             } else if (op == 2) {
-                // Chama o novo método de filtro que criamos
+                // Chama o método do serviço para listar apenas os chamados deste usuário
                 chamadoService.listarChamadosPorUsuario(logado);
             } else if (op == 0) {
                 System.out.println("Logout realizado!");
@@ -215,7 +216,8 @@ public class Main {
             System.out.print("\nEscolha o novo status (1-ABERTO, 2-EM_ANDAMENTO, 3-CONCLUIDO): ");
             int opcaoStatus = scanner.nextInt();
             scanner.nextLine();
-
+            
+// Converte a opção numérica para o enum Status
             Status novoStatus = null;
             switch (opcaoStatus) {
                 case 1: novoStatus = Status.ABERTO; break;
