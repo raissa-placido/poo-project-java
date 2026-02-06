@@ -32,17 +32,6 @@ public class ChamadoService implements IChamadoService {
         if (!encontrou) System.out.println("Você não tem chamados abertos.");
     }
 
-        // Lista todos os chamados abertos
-        public void listarChamados() {
-            System.out.println("\n--- LISTA GERAL DE CHAMADOS ---");
-            if (listaChamados.isEmpty()) {
-                System.out.println("Nenhum chamado aberto.");
-                return;
-            }
-            for (Chamado c : listaChamados) {
-                System.out.println(c.toString());
-            }
-        }
 
     // Filtra e mostra apenas os chamados atendidos por este técnico
     public void gerarRelatorioTecnico(Tecnico t) {
