@@ -3,7 +3,8 @@ public class Chamado {
     private String titulo;
     private String descricao;
     private Prioridade prioridade; // Ex: Baixa, Media, Alta
-    private Status status;     // Ex: Aberto, Em Andamento, Encerrado
+    private Status status;     // Ex: Aberto, Em Andamento, Concluído
+    private Status status;     // Ex: Aberto, Em Andamento, Concluído
     
     // RELACIONAMENTOS (O Pulo do Gato!)
     private Usuario autor; // Quem abriu?
@@ -27,12 +28,12 @@ public class Chamado {
     // Atribuir um técnico muda o status para "Em Andamento"
     public void atribuirTecnico(Tecnico tecnico) {   //é necessário?
         this.responsavel = tecnico;  
-        this.status = Status.ANDAMENTO;
+        this.status = Status.EM_ANDAMENTO;
     }
 
     // Fechar o chamado
     public void fecharChamado() {   //é necessário?
-        this.status = Status.ENCERRADO;
+        this.status = Status.CONCLUIDO;
     }
 
     // --- GETTERS (Para consultar dados) ---
@@ -60,4 +61,24 @@ public class Chamado {
     public Tecnico getTecnico() {
         return responsavel;
     }
+
+        public void setPrioridade(Prioridade prioridade) {
+            this.prioridade = prioridade;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getDescricao() {
+            return descricao;
+        }
+
+        public Prioridade getPrioridade() {
+            return prioridade;
+        }
+
+        public void setStatus(Status status) {
+            this.status = status;
+        }
 }

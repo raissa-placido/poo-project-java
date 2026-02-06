@@ -1,5 +1,5 @@
 public enum Status {
     ABERTO, 
-    ANDAMENTO,
-    ENCERRADO
+    EM_ANDAMENTO,
+    CONCLUIDO
 }
