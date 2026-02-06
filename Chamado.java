@@ -25,14 +25,9 @@ public class Chamado {
     // --- MÉTODOS DE AÇÃO ---
 
     // Atribuir um técnico muda o status para "Em Andamento"
-    public void atribuirTecnico(Tecnico tecnico) {   //é necessário?
+    public void atribuirTecnico(Tecnico tecnico) {   
         this.responsavel = tecnico;  
         this.status = Status.EM_ANDAMENTO;
-    }
-
-    // Fechar o chamado
-    public void fecharChamado() {   //é necessário?
-        this.status = Status.CONCLUIDO;
     }
 
     // --- GETTERS (Para consultar dados) ---
