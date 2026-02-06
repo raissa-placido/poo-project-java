@@ -28,10 +28,10 @@ public class Main {
             scanner.nextLine();
 
             switch (opcao) {
-                case 1: loginUsuario(); break;
-                case 2: loginTecnico(); break;
-                case 3: cadastrarNovoTecnico(); break;
-                case 4: cadastrarNovoUsuario(); break;
+                case 1: sessaoLoginUsuario(); break;
+                case 2: sessaoLoginTecnico(); break;
+                case 3: sessaoCadastrarTecnico(); break;
+                case 4: sessaoCadastrarUsuario(); break;
                 case 0: System.out.println("Saindo..."); break;
                 default: System.out.println("Opção inválida!");
             }
@@ -40,7 +40,7 @@ public class Main {
 
     // --- MÉTODOS DE LOGIN ---
 
-    public static void loginUsuario() {
+    public static void sessaoLoginUsuario() {
         System.out.print("Matrícula do Usuário: ");
         String matricula = scanner.nextLine();
 
@@ -61,7 +61,7 @@ public class Main {
             scanner.nextLine();
 
             if (op == 1) {
-                abrirChamado(logado);
+                sessaoAbrirChamado(logado);
             } else if (op == 2) {
                 // Chama o método do serviço para listar apenas os chamados deste usuário
                 chamadoService.listarChamadosPorUsuario(logado);
@@ -73,7 +73,7 @@ public class Main {
         }
     }
 
-    public static void loginTecnico() {
+    public static void sessaoLoginTecnico() {
         System.out.print("Matrícula do Técnico: ");
         String matricula = scanner.nextLine();
 
@@ -110,7 +110,7 @@ public class Main {
 
     // --- MÉTODOS AUXILIARES ---
 
-    public static void abrirChamado(Usuario u) {
+    public static void sessaoAbrirChamado(Usuario u) {
         System.out.print("Título: ");
         String titulo = scanner.nextLine();
         System.out.print("Descrição: ");
@@ -125,7 +125,7 @@ public class Main {
            
     }
 
-    public static void cadastrarNovoUsuario() {
+    public static void sessaoCadastrarUsuario() {
         System.out.print("Nova Matrícula: "); String matricula = scanner.nextLine();
         
         // Valida se a matrícula já existe
@@ -139,7 +139,7 @@ public class Main {
         sistema.cadastrarUsuario(new Usuario(matricula, nome, dept));
     }
 
-    public static void cadastrarNovoTecnico() {
+    public static void sessaoCadastrarTecnico() {
         System.out.print("Nova Matrícula: "); String matricula = scanner.nextLine();
         
         // Valida se a matrícula já existe
