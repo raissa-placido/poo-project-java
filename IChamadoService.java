@@ -3,7 +3,6 @@ public interface IChamadoService {
 
     void listarChamadosPorUsuario(Usuario u);
     void listarChamadosPendentes();
-    void listarChamados();
     void listarMeusChamados(Tecnico t);
 
     boolean atribuirChamado(int idChamado, Tecnico tecnico);
